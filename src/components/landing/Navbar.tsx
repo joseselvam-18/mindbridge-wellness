@@ -22,56 +22,58 @@ const Navbar = () => {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-background/95 backdrop-blur-xl shadow-sm border-b border-border/50"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 group">
-            <Brain className="w-7 h-7 text-primary" />
-            <span className="text-xl font-semibold tracking-tight text-foreground group-hover:text-gradient-brand transition-all duration-300">
-              MindBridge
-            </span>
-          </Link>
+      <div className="fixed top-0 left-0 right-0 z-50 mt-4 px-4 md:px-8">
+        <nav
+          className={`max-w-7xl mx-auto rounded-2xl border transition-all duration-300 ${
+            scrolled
+              ? "bg-background/95 backdrop-blur-xl shadow-lg border-border"
+              : "bg-background/80 backdrop-blur-xl border-border/50"
+          }`}
+        >
+          <div className="px-6 h-[64px] flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-3 group">
+              <Brain className="w-7 h-7 text-primary" />
+              <span className="text-xl font-semibold tracking-tight text-foreground group-hover:text-gradient-brand transition-all duration-300">
+                CareNest
+              </span>
+            </Link>
 
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                className="px-4 py-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-accent transition-all duration-200 text-sm font-medium"
+            <div className="hidden md:flex items-center gap-1">
+              {navLinks.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  className="px-4 py-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-accent transition-all duration-200 text-sm font-medium"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+
+            <div className="hidden md:flex items-center gap-3">
+              <Link
+                to="/signin"
+                className="px-4 py-2 rounded-lg text-foreground hover:bg-accent font-medium text-sm transition-all"
               >
-                {l.label}
-              </a>
-            ))}
-          </div>
+                Sign In
+              </Link>
+              <Link
+                to="/signup"
+                className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm shadow-sm hover:shadow-md hover:scale-105 transition-all duration-200"
+              >
+                Get Started
+              </Link>
+            </div>
 
-          <div className="hidden md:flex items-center gap-3">
-            <Link
-              to="/signin"
-              className="px-4 py-2 rounded-lg text-foreground hover:bg-accent font-medium text-sm transition-all"
+            <button
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-accent"
+              onClick={() => setMobileOpen(true)}
             >
-              Sign In
-            </Link>
-            <Link
-              to="/signup"
-              className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm shadow-sm hover:shadow-md hover:scale-105 transition-all duration-200"
-            >
-              Get Started
-            </Link>
+              <Menu className="w-6 h-6" />
+            </button>
           </div>
-
-          <button
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-accent"
-            onClick={() => setMobileOpen(true)}
-          >
-            <Menu className="w-6 h-6" />
-          </button>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
       <AnimatePresence>
         {mobileOpen && (
@@ -85,7 +87,7 @@ const Navbar = () => {
             <div className="flex items-center justify-between px-6 h-[72px] border-b border-border">
               <div className="flex items-center gap-3">
                 <Brain className="w-7 h-7 text-primary" />
-                <span className="text-xl font-semibold">MindBridge</span>
+                <span className="text-xl font-semibold">CareNest</span>
               </div>
               <button
                 className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-accent"

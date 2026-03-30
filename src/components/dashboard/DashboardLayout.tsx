@@ -2,7 +2,7 @@ import { ReactNode, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Brain, Home, MessageCircle, BookOpen, Music, Library, BarChart3, AlertCircle,
-  Settings, LogOut, Bell, Search, ChevronRight, Menu, X
+  Settings, LogOut, Bell, Search, ChevronRight, Menu, X, MoreHorizontal
 } from "lucide-react";
 
 const menuItems = [
@@ -13,6 +13,14 @@ const menuItems = [
   { icon: Library, label: "Resources", path: "/dashboard/resources" },
   { icon: BarChart3, label: "Analytics", path: "/dashboard/analytics" },
   { icon: AlertCircle, label: "SOS Help", path: "/dashboard/sos", destructive: true },
+];
+
+const bottomNavItems: Array<{ icon: React.ElementType; label: string; path?: string; action?: string }> = [
+  { icon: Home, label: "Home", path: "/dashboard" },
+  { icon: MessageCircle, label: "Chat", path: "/dashboard/chat" },
+  { icon: BookOpen, label: "Journal", path: "/dashboard/journal" },
+  { icon: Music, label: "Calm", path: "/dashboard/calm" },
+  { icon: MoreHorizontal, label: "More", action: "menu" },
 ];
 
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
@@ -27,7 +35,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
       <div className="mb-8 pb-6 border-b border-sidebar-border">
         <Link to="/" className="flex items-center gap-3">
           <Brain className="w-8 h-8 text-chart-1" />
-          <span className="text-xl font-bold text-sidebar-foreground">MindBridge</span>
+          <span className="text-xl font-bold text-sidebar-foreground">CareNest</span>
         </Link>
       </div>
 
@@ -111,9 +119,9 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
       )}
 
       {/* Main Content */}
-      <div className="flex-1 lg:ml-64 flex flex-col min-h-screen">
+      <div className="flex-1 lg:ml-64 flex flex-col min-h-screen pb-16 lg:pb-0">
         {/* Top Bar */}
-        <header className="sticky top-0 z-30 h-[72px] bg-background/95 backdrop-blur-xl border-b border-border flex items-center justify-between px-6 lg:px-8">
+        <header className="sticky top-0 z-30 h-[72px] bg-background/95 backdrop-blur-xl border-b border-border flex items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <button onClick={() => setSidebarOpen(true)} className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-accent">
               <Menu className="w-5 h-5" />
@@ -125,13 +133,13 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <div className="relative hidden md:block">
               <Search className="w-[18px] h-[18px] text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-64 h-10 pl-10 pr-4 rounded-lg border border-border bg-input-background text-sm placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                className="w-48 lg:w-64 h-10 pl-10 pr-4 rounded-lg border border-border bg-input-background text-sm placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
               />
             </div>
 
@@ -146,8 +154,41 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
           </div>
         </header>
 
-        <main className="flex-1 p-6 lg:p-8">{children}</main>
+        <main className="flex-1 p-4 sm:p-6 lg:p-8">{children}</main>
       </div>
+
+      {/* Mobile Bottom Navigation */}
+      <nav className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-background/95 backdrop-blur-xl border-t border-border">
+        <div className="flex items-center justify-around h-16">
+          {bottomNavItems.map((item) => {
+            if (item.action === "menu") {
+              return (
+                <button
+                  key={item.label}
+                  onClick={() => setSidebarOpen(true)}
+                  className="flex flex-col items-center justify-center gap-1 min-w-[3rem] py-1 text-muted-foreground"
+                >
+                  <item.icon className="w-5 h-5" />
+                  <span className="text-[10px] font-medium">{item.label}</span>
+                </button>
+              );
+            }
+            const active = location.pathname === item.path;
+            return (
+              <Link
+                key={item.label}
+                to={item.path}
+                className={`flex flex-col items-center justify-center gap-1 min-w-[3rem] py-1 transition-colors ${
+                  active ? "text-primary" : "text-muted-foreground"
+                }`}
+              >
+                <item.icon className="w-5 h-5" />
+                <span className="text-[10px] font-medium">{item.label}</span>
+              </Link>
+            );
+          })}
+        </div>
+      </nav>
     </div>
   );
 };
