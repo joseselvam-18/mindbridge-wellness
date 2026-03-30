@@ -15,12 +15,12 @@ const menuItems = [
   { icon: AlertCircle, label: "SOS Help", path: "/dashboard/sos", destructive: true },
 ];
 
-const bottomNavItems = [
+const bottomNavItems: Array<{ icon: React.ElementType; label: string; path?: string; action?: string }> = [
   { icon: Home, label: "Home", path: "/dashboard" },
   { icon: MessageCircle, label: "Chat", path: "/dashboard/chat" },
   { icon: BookOpen, label: "Journal", path: "/dashboard/journal" },
   { icon: Music, label: "Calm", path: "/dashboard/calm" },
-  { icon: MoreHorizontal, label: "More", action: "menu" as const },
+  { icon: MoreHorizontal, label: "More", action: "menu" },
 ];
 
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
