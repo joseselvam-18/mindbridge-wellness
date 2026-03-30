@@ -16,7 +16,7 @@ const tracks: Track[] = [
   { id: 1, title: "Rain on Leaves", artist: "Nature Sounds", duration: "5:30", mood: "Calming", category: "Nature", gradient: "from-chart-2/30 to-chart-5/20" },
   { id: 2, title: "Morning Raga", artist: "Classical Vibes", duration: "8:15", mood: "Peaceful", category: "Indian Classical", gradient: "from-chart-4/30 to-chart-1/20" },
   { id: 3, title: "Ocean Waves", artist: "Sea Sounds", duration: "10:00", mood: "Relaxing", category: "Nature", gradient: "from-chart-3/30 to-chart-2/20" },
-  { id: 4, title: "Guided Meditation", artist: "MindBridge", duration: "15:00", mood: "Mindful", category: "Meditation", gradient: "from-chart-5/30 to-chart-2/20" },
+  { id: 4, title: "Guided Meditation", artist: "CareNest", duration: "15:00", mood: "Mindful", category: "Meditation", gradient: "from-chart-5/30 to-chart-2/20" },
   { id: 5, title: "Breathing Exercise", artist: "Wellness Hub", duration: "4:00", mood: "Calming", category: "Exercise", gradient: "from-chart-1/30 to-chart-4/20" },
   { id: 6, title: "Evening Flute", artist: "Instrumental", duration: "6:45", mood: "Serene", category: "Indian Classical", gradient: "from-chart-2/30 to-chart-3/20" },
 ];

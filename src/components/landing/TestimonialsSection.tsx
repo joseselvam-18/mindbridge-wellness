@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    text: "MindBridge helped me through my darkest days. The AI understood me better than I thought possible, and having support in Hindi made all the difference.",
+    text: "CareNest helped me through my darkest days. The AI understood me better than I thought possible, and having support in Hindi made all the difference.",
     name: "Priya S.",
     location: "Mumbai",
     color: "from-chart-1 to-chart-4",
@@ -15,7 +15,7 @@ const testimonials = [
     color: "from-chart-2 to-chart-5",
   },
   {
-    text: "The cultural sensitivity is what sets MindBridge apart. It understands family pressure and doesn't just give generic Western advice.",
+    text: "The cultural sensitivity is what sets CareNest apart. It understands family pressure and doesn't just give generic Western advice.",
     name: "Meera K.",
     location: "Chennai",
     color: "from-chart-5 to-chart-1",
@@ -27,7 +27,7 @@ const testimonials = [
     color: "from-chart-3 to-chart-2",
   },
   {
-    text: "I was skeptical about AI therapy, but MindBridge's triage system connected me with a real therapist when I needed it most.",
+    text: "I was skeptical about AI therapy, but CareNest's triage system connected me with a real therapist when I needed it most.",
     name: "Anjali M.",
     location: "Pune",
     color: "from-chart-4 to-chart-1",

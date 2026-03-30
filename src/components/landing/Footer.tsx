@@ -8,7 +8,7 @@ const Footer = () => (
         <div>
           <div className="flex items-center gap-3">
             <Brain className="w-7 h-7 text-primary" />
-            <span className="text-xl font-semibold">MindBridge</span>
+            <span className="text-xl font-semibold">CareNest</span>
           </div>
           <p className="text-muted-foreground mt-3">Mental wellness, redefined.</p>
         </div>
@@ -33,8 +33,8 @@ const Footer = () => (
 
         <div>
           <h4 className="text-sm font-semibold uppercase text-muted-foreground mb-4">Get in Touch</h4>
-          <a href="mailto:support@mindbridge.in" className="flex items-center gap-2 text-primary text-sm py-1.5">
-            <Mail className="w-4 h-4" /> support@mindbridge.in
+          <a href="mailto:support@carenest.in" className="flex items-center gap-2 text-primary text-sm py-1.5">
+            <Mail className="w-4 h-4" /> support@carenest.in
           </a>
           <a href="tel:18602662345" className="flex items-center gap-2 text-card-foreground text-sm py-1.5">
             <Phone className="w-4 h-4" /> 1860-2662-345
@@ -44,7 +44,7 @@ const Footer = () => (
       </div>
 
       <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-muted-foreground">© 2024 MindBridge. All rights reserved.</p>
+        <p className="text-sm text-muted-foreground">© 2024 CareNest. All rights reserved.</p>
         <p className="text-sm text-muted-foreground flex items-center gap-1">
           Made with <Heart className="w-3 h-3 fill-destructive text-destructive" /> in India
         </p>
